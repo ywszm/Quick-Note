@@ -60,7 +60,7 @@
     }
 
     > .item.selected {
-      color: red;
+      color: yellowgreen;
     }
   }
 </style>
