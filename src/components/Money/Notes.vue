@@ -1,11 +1,9 @@
 <template>
   <div>
     <label class="notes">
-      {{value}}
       <span class="name">备注</span>
       <input type="text"
-             :value="value"
-             @change="onChang"
+             v-model="value"
              placeholder="在这里输入备注">
     </label>
   </div>
@@ -18,11 +16,6 @@
   @Component
   export default class Notes extends Vue {
     value = '';
-
-    onChang(event: KeyboardEvent) {
-      const input = event.target as HTMLButtonElement;
-      this.value = input.value;
-    }
   }
 </script>
 
