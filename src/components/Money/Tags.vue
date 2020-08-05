@@ -4,12 +4,13 @@
       <button @click="create">新增标签</button>
     </div>
     <ul class="current">
-      <li v-for="tag in dataSource" :key="tag"
+      <li v-for="tag in dataSource" :key="tag.id"
           :class="{selected: selectedTags.indexOf(tag)>=0}"
-          @click="toggle(tag)">{{tag}}
+          @click="toggle(tag)">{{tag.name}}
       </li>
     </ul>
   </div>
+
 </template>
 
 <script lang="ts">
@@ -28,7 +29,7 @@
       } else {
         this.selectedTags.push(tag);
       }
-      this.$emit('update:value',this.selectedTags)
+      this.$emit('update:value', this.selectedTags);
     }
 
     create() {
@@ -39,13 +40,14 @@
         this.$emit('update:dataSource',
           [...this.dataSource, name]);
       }
-    }
 
+    }
   }
 </script>
 
 <style lang="scss" scoped>
   .tags {
+    background: white;
     font-size: 14px;
     padding: 16px;
     flex-grow: 1;
@@ -80,10 +82,11 @@
       button {
         background: transparent;
         border: none;
-        color: #999999;
+        color: #999;
         border-bottom: 1px solid;
         padding: 0 4px;
       }
     }
   }
+
 </style>
